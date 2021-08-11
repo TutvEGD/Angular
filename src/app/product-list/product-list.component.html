@@ -1,0 +1,33 @@
+
+<a href="/add" class="btn btn-primary">Add Product</a>
+<table class="table table-dark" >
+  <td>
+</td>
+    <thead>
+      <tr>
+        <th scope="col">stt</th>
+        <th scope="col">Name</th>
+        <th scope="col">Desc</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products;index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{product.name}}</td>
+        <td>{{product.desc}}</td>
+        <td>
+            <button type="button" class="btn btn-danger" (click)="detail(product.id)">Detail</button>
+            <button type="button" class="btn btn-warning" (click)="removeProduct(product.id)">Delete</button>
+            <button type="button" class="btn btn-primary" ><a routerLink="/product/edit/{{product.id}}" class="text-white">Update</a></button>
+        </td>
+      
+      </tr>
+    </tbody>
+  </table>
+
+  <span *ngIf="product">
+      {{product.name}} <br>
+      {{product.price}}<br>
+      {{product.desc}}
+  </span>
